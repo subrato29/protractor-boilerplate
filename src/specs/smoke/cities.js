@@ -1,5 +1,5 @@
 let config = require('../../../config/urls.js');
-let websitePage = require('../../pages/website_page.js')
+let resourcePage = require('../../pages/resources_page.js')
 let data = require("../../..//data/data.js");
 
 browser.ignoreSynchronization = true;
@@ -9,30 +9,31 @@ describe('Resouces Page Testing: ', function() {
 
 	beforeEach((done) => {
 	    browser.waitForAngularEnabled(false);
-	    browser.get(config.url.websiteDesign.websiteUrl).then(() => {
+	    browser.get(config.url.cities.baseUrl).then(() => {
 	        done();
 	    });
 	});
 
-	it('Verifying choosing 99 plan: ', function() {
+	it('Verifying navigation of Manage tab: ', function() {
 
 		browser.driver.manage().deleteAllCookies().then(() => {
 	    }).then(() => {
 	        return browser.driver.manage().window().maximize();
 	    }).then(() => {
-	    	return websitePage.clickChoosePlan_99();
+	    	return resourcePage.clickManage();
 	    }).then(() => {
-	    	return websitePage.click_domain();
-	    }).then(() => {
-	    	return websitePage.set_domain('tempdomain');
+	    	return resourcePage.verifyManageText();
+	    }).then((text) => {
+	    	return expect(text).toBe('Manage');
+	    	done();
 	    }).catch((err) => {
-	    	return Promise.reject ('Verifying choosing 99 plan: ' + err);
+	    	return Promise.reject (err);
 	    });
 	});
 
 
 	afterEach((done) => {
-	    browser.get("https://login.yahoosmallbusiness.com/logout").then(() => {
+	    browser.get(config.url.getStarted.baseUrl).then(() => {
 	        done();
 	    });
 	});

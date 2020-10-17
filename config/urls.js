@@ -5,16 +5,19 @@ module.exports = {
 
 	url: {
 		login: {
-			baseUrl: "https://login.yahoosmallbusiness.com/login"
+			baseUrl: "https://account.lyft.com/auth"
 		},
-		dashboardlive: {
-			baseUrl: "https://smallbusiness.yahoo.com/dashboard/v2/apps/dashboard/live?bizid=52ce521079030264e2839525fd25315b~license_f3db0a3ffc4745aea4eceb863ccf9077"
+		cities: {
+			baseUrl: "https://www.lyft.com/rider/cities"
 		},
-		resources: {
-			resourcesUrl: "https://smallbusiness.yahoo.com/advisor/resource-center"
+		help: {
+			baseUrl: "https://help.lyft.com/hc/en-us"
 		},
-		websiteDesign: {
-			websiteUrl: "https://smallbusiness.yahoo.com/webdesign"
+		contactUs: {
+			baseUrl: "https://www.lyftbusiness.com/contact-us"
+		},
+		getStarted: {
+			baseUrl: "https://www.lyft.com/business/signup?utm_source=website&utm_medium=direct"
 		}
 	}	
 
